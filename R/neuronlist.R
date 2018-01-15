@@ -75,7 +75,7 @@ primary.neurite.neuron <- function(x, resample = 1, ...){
   som <- if (is.null(x$tags$soma)){
     warning("No soma found, using startpoint")
     som = x$StartPoint
-  } else somapos(x)
+  } else as.integer(rownames(soma(x)))
   sl=as.seglist(x, flatten=T, all=T)
   som_seg=which(sapply(sl, function(x) som%in%x))
   if(length(som_seg)>1){
